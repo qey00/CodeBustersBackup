@@ -1,1 +1,4 @@
-corn,6
+beef 9
+corn 6
+adsf 3
+adsf 1
