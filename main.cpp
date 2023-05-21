@@ -54,7 +54,9 @@ void LoadingAnimation()
 //basta doon sa start screen
 void pressAnyKey()
 {
-    getchar();
+    cin.ignore();
+    cin.get();
+    //getchar();
 }
 
 //  questions
@@ -63,6 +65,14 @@ void getQuestions(string questions[])
     questions[0] = "1. User Input?\n(a) CIN\n(b) COUT\n";
     questions[1] = "2. What is the command to print 'Hello, World!' in C++?\n(a) cout << 'Hello, World!';\n(b) printf('Hello, World!')\n";
     questions[2] = "3. Use to display something on the screen?\n(a) CIN\n(b) COUT\n";
+    questions[3] = "4. ";
+    questions[4] = "5. ";
+    questions[5] = "6. ";
+    questions[6] = "7. ";
+    questions[7] = "8. ";
+    questions[8] = "9. ";
+    questions[9] = "10. ";
+
 }
 
 //scoring and timer
@@ -94,7 +104,8 @@ bool askQuestion(const string& question, char correctAnswer, int& score, bool& t
             else
                 score += 1;
         }
-        return true;
+        //------------------------------------------------
+        return playerAnswer == correctAnswer;
     }
 }
 struct PlayerScore
@@ -196,24 +207,25 @@ int main()
     do {
         cout << "Enter your Name to play the Game: ";
         cin >> playerName;
-
         system("cls");
 
         // Declaration again
         int score = 0;
-        string questions[3];
+        string questions[10];
         getQuestions(questions);
 
-        // Answer key
-        char answers[3] = { 'a', 'a', 'b' };
-
+        // Answer key answer[10]
+        char answers[10] = { 'a', 'a', 'a','a', 'a', 'a', 'a', 'a' ,'a', 'a' };
+        //para di ko madelete askQuestion(questions[i], answers[i], score, timeExpired)
         bool timeExpired = false; // Initialize timeExpired to false
-        for (int i = 0; i < 3; i++) { // Use the correct number of questions
+        
+        for (int i = 0; i < 10; i++) { // Use the correct number of questions
             cout << "\nQuestion " << (i + 1) << endl;
-            if (askQuestion(questions[i], answers[i], score, timeExpired)) {
+            bool isAnswerCorrect = askQuestion(questions[i], answers[i], score, timeExpired);
+            
+            if (isAnswerCorrect) {
                 cout << "Correct! ";
-            }
-            else {
+            }else {
                 cout << "Incorrect! ";
             }
             cout << "Current Score: " << score << endl;
@@ -228,7 +240,7 @@ int main()
         }
 
         cout << "\nQuiz finished!" << endl;
-        cout << "Final Score: " << score << " points out of 9" << endl;
+        cout << "Final Score: " << score << " points out of 30" << endl;
 
         system("cls");
 
