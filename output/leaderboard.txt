@@ -1,4 +1,11 @@
+porkchop 10
 beef 9
 corn 6
 adsf 3
+sdf 3
+kjb 3
 adsf 1
+kjh 0
+kj 0
+wert 0
+lkjh 0
